@@ -8,7 +8,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String paginaInicial() {
-        return "home";
+        return "index";
     }
 
     @GetMapping("/login")
@@ -20,4 +20,15 @@ public class HomeController {
     public String paginaDeRegistro() {
         return "register";
     }
+
+    @GetMapping("/about")
+    public String paginaSobreNos() {
+        return "about";
+    }
+
+    @GetMapping("/contact")
+    public String paginaDeContato() {
+        return "contact";
+    }
+
 }

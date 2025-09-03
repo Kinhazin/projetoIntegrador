@@ -15,23 +15,25 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(authorize -> authorize
-                        // 1. Permite acesso público à página de login e aos arquivos estáticos (CSS,
-                        // JS)
-                        .requestMatchers("/login", "/register", "/css/**", "/js/**", "/index.css").permitAll()
-                        // 2. Exige que QUALQUER OUTRA requisição seja autenticada
-                        .anyRequest().authenticated())
-                // 3. Configura o formulário de login
-                .formLogin(form -> form
-                        .loginPage("/login") // Diz ao Spring Security qual é a sua página de login
-                        .loginProcessingUrl("/login") // URL que o formulário envia os dados (o Spring Security a
-                                                      // gerencia)
-                        .defaultSuccessUrl("/", true) // Para onde ir após um login bem-sucedido
-                        .failureUrl("/login?error=true") // Para onde ir se o login falhar
-                        .permitAll())
-                .logout(logout -> logout // Configura a funcionalidade de logout
-                        .logoutSuccessUrl("/login?logout=true") // Para onde ir após o logout
-                        .permitAll());
+            .headers(headers -> headers
+                .contentSecurityPolicy(csp -> csp
+                    .policyDirectives("default-src 'self'; img-src * data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self';")
+                )
+            )
+            .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers("/login", "/register", "/css/**", "/js/**", "/img/**", "/index.css").permitAll()
+                // Exige que QUALQUER OUTRA requisição seja autenticada
+                .anyRequest().authenticated())
+            // Configura o formulário de login
+            .formLogin(form -> form
+                .loginPage("/login") 
+                .loginProcessingUrl("/login") 
+                .defaultSuccessUrl("/", true) 
+                .failureUrl("/login?error=true")
+                .permitAll())
+            .logout(logout -> logout 
+                .logoutSuccessUrl("/login?logout=true") 
+                .permitAll());
 
         return http.build();
     }
