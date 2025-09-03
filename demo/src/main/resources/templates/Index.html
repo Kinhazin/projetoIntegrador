@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>Shopping do Futuro</title>
@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+            <a class="navbar-brand text-success logo h1 align-self-center" href="/">
                 Shopping future
             </a>
 
@@ -38,16 +38,16 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Início</a>
+                            <a class="nav-link" href="/">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">Sobre</a>
+                            <a class="nav-link" href="/about">Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Loja</a>
+                            <a class="nav-link" href="/shop">Loja</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contato</a>
+                            <a class="nav-link" href="/contact">Contato</a>
                         </li>
                     </ul>
                 </div>
@@ -60,34 +60,20 @@
                             </div>
                         </div>
                     </div>
-                    <a class="nav-icon position-relative text-decoration-none" href="#loginModal" data-bs-toggle="modal" data-bs-target="#loginModal" style="cursor:pointer;">
-                       <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Usuário" width="32" height="32" style="vertical-align:middle;">
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    <a class="nav-icon position-relative text-decoration-none" href="#loginModal" data-bs-toggle="modal"
+                        data-bs-target="#loginModal" style="cursor:pointer;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Usuário" width="32"
+                            height="32" style="vertical-align:middle;">
+                        <span
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                     </a>
                 </div>
             </div>
 
         </div>
     </nav>
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Pesquisar ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
-                        <i class="fa fa-fw fa-search text-white"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-
-
+    
+    <!-- Carousel -->
     <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
         <ol class="carousel-indicators">
             <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
@@ -139,13 +125,18 @@
         </div>
         <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel"
             role="button" data-bs-slide="prev">
-            <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Anterior" width="32" height="32" style="filter:invert(20%) grayscale(100%);">
+            <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Anterior" width="32" height="32"
+                style="filter:invert(20%) grayscale(100%);">
         </a>
         <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel"
             role="button" data-bs-slide="next">
-            <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="Próximo" width="32" height="32" style="filter:invert(20%) grayscale(100%);">
+            <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="Próximo" width="32" height="32"
+                style="filter:invert(20%) grayscale(100%);">
         </a>
     </div>
+    <!-- Fim Carousel -->
+    
+    <!-- Categorias -->
     <section class="container py-5">
         <div class="row text-center pt-3">
             <div class="col-lg-6 m-auto">
@@ -173,6 +164,9 @@
             </div>
         </div>
     </section>
+    <!-- Fim Categorias -->
+    
+    <!-- Destaques -->
     <section class="bg-light">
         <div class="container py-5">
             <div class="row text-center py-3">
@@ -260,6 +254,8 @@
             </div>
         </div>
     </section>
+    <!-- Fim Destaques -->
+
     <footer class="bg-dark" id="tempaltemo_footer">
         <div class="w-100 bg-black py-3">
             <div class="container">
@@ -274,57 +270,65 @@
                 </div>
             </div>
         </div>
-
     </footer>
-        <!-- Modal de Login -->
-   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="card shadow-lg w-100 m-0" style="max-width: 480px;">
-                <div class="card-body">
-                    <div class="text-center">
-                        <h1 class="card-title h3" id="loginModalLabel">Login</h1>
-                        <p class="card-text text-muted">Acesse sua conta</p>
-                    </div>
-
-                    <div th:if="${param.error}" class="alert alert-danger mt-4 text-center">
-                        Usuário ou senha inválidos.
-                    </div>
-
-                    <div class="mt-4">
-                        <form th:action="@{/login}" method="post">
-                            
-                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-
-                            <div class="mb-4">
-                                <label for="username" class="form-label text-muted">Endereço de e-mail</label>
-                                <input type="email" class="form-control" id="username" name="username" placeholder="Digite seu e-mail" required>
+    
+    <!-- Modal de Login MODIFICADO -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="card shadow-lg w-100 m-0 border-0">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h1 class="card-title h3" id="loginModalLabel">Login</h1>
+                                <p class="card-text text-muted">Acesse sua conta</p>
                             </div>
 
-                            <div class="mb-4">
-                                <label for="password" class="form-label text-muted">Senha</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required>
+                            <!-- MUDANÇA: Div para exibir a mensagem de erro dinamicamente -->
+                            <div id="login-error-message" class="alert alert-danger mt-4 text-center d-none">
+                                <!-- Mensagem de erro aparecerá aqui -->
                             </div>
 
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-dark btn-lg">Entrar</button>
-                            </div>
+                            <div class="mt-4">
+                                <!-- MUDANÇA: Adicionado id="login-form" ao formulário -->
+                                <form id="login-form">
+                                    <div class="mb-4">
+                                        <label for="username" class="form-label text-muted">Endereço de e-mail</label>
+                                        <input type="email" class="form-control" id="username" name="username"
+                                            placeholder="Digite seu e-mail" required>
+                                    </div>
 
-                            <p class="text-center text-muted mt-4">Não tem uma conta?
-                                <a href="#" class="text-decoration-none">Cadastre-se</a>.
-                            </p>
-                        </form>
+                                    <div class="mb-4">
+                                        <label for="password" class="form-label text-muted">Senha</label>
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            placeholder="Digite sua senha" required>
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-dark btn-lg">Entrar</button>
+                                    </div>
+
+                                    <p class="text-center text-muted mt-4">Não tem uma conta?
+                                        <a href="/register" class="text-decoration-none">Cadastre-se</a>.
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
     <script src="/js/jquery-1.11.0.min.js"></script>
     <script src="/js/jquery-migrate-1.2.1.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/templatemo.js"></script>
     <script src="/js/custom.js"></script>
+
+    <!-- ADIÇÃO: Nosso novo script de login -->
+    <script src="/js/login-ajax.js"></script>
 </body>
 
 </html>
+
